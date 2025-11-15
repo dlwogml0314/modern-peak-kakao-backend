@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODERN-PEAK - 상품 목록</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        // 🚨 중요: 주신 키를 사용하여 SDK를 초기화합니다.
+        // 이 키는 카카오 개발자 센터에서 발급받은 실제 JavaScript 키여야 합니다.
+        Kakao.init('Y3l7Id39aSkSOFAroUgWcdp5kqxPuP3x'); 
+    </script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="top-bar">
+            <div class="top-menu">
+                <a href="#" id="login-link">LOGIN</a> 
+                <a href="#" id="logout-link" style="display:none;">LOGOUT</a> 
+                <a href="#">JOIN US</a>
+                <a href="#">MY PAGE</a>
+            </div>
+            <div class="notice-menu">
+                <a href="#">NOTICE</a>
+                <a href="#">Q & A</a>
+                <a href="#">REVIEW</a>
+            </div>
+        </div>
+
+        <div class="main-header">
+            <h1 class="logo"><a href="#" id="home-link">MODERN-PEAK</a></h1>
+            <div class="search-box">
+                <input type="text" placeholder="상품 검색...">
+                <button type="submit">🔍</button>
+            </div>
+             <div class="cart-info">
+                <a href="#">
+                    CART (<span id="cart-count">0</span>)
+                </a>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#"><span class="icon">≡</span></a></li>
+                <li class="active"><a href="#" data-category="Outer">OUTER</a></li>
+                <li><a href="#" data-category="Top">TOP</a></li>
+                <li><a href="#" data-category="Pants">PANTS</a></li>
+                <li><a href="#" data-category="Acc">ACC</a></li>
+                <li><a href="#" data-category="Sale">SALE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-area">
+        
+        <section class="login-page-section" id="login-page" style="display:none;">
+            <h2>로그인</h2>
+            <div class="login-container">
+                <p class="login-intro">MODERN-PEAK에 오신 것을 환영합니다. (데모 버전)</p>
+                
+                <div class="social-login-buttons">
+                    <button class="social-btn naver-btn" id="naver-login-btn">
+                        <span class="icon">N</span> 네이버로 로그인
+                    </button>
+                    
+                    <button class="social-btn kakao-btn" id="kakao-login-btn">
+                        <span class="icon">K</span> 카카오로 로그인
+                    </button>
+                </div>
+                
+                <div class="separator">
+                    <span>또는</span>
+                </div>
+
+                <button class="standard-login-btn">
+                    이메일로 로그인
+                </button>
+                
+                <p class="signup-link">
+                    아직 회원이 아니신가요? <a href="#">회원가입</a>
+                </p>
+            </div>
+        </section>
+
+
+        <section class="product-list-section" id="product-list-section">
+            <div class="breadcrumb">
+                <a href="#">Home</a> &gt; <a href="#">OUTER</a>
+            </div>
+
+            <section class="sub-category">
+                <h2>OUTER COLLECTION</h2>
+                <nav class="sub-nav-list" id="sub-category-filter">
+                    <a href="#" class="filter-btn active" data-filter="All">All</a>
+                    <a href="#" class="filter-btn" data-filter="Jacket">Jacket</a>
+                    <a href="#" class="filter-btn" data-filter="Denim">Denim</a>
+                    <a href="#" class="filter-btn" data-filter="Leather">Leather</a>
+                    <a href="#" class="filter-btn" data-filter="Padding">Padding</a>
+                </nav>
+            </section>
+
+            <div class="list-controls">
+                <div class="product-count">총 <span id="total-product-count">0</span>개 상품</div>
+                <div class="view-options">
+                    <span class="grid-view active">4개 보기</span> 
+                    <span class="list-view">리스트 보기</span>
+                </div>
+                <select class="sort-select" id="sort-select">
+                    <option value="date" selected>신상품순</option>
+                    <option value="low-price">낮은가격순</option>
+                    <option value="high-price">높은가격순</option>
+                    <option value="name">상품명순</option>
+                </select>
+            </div>
+
+            <div class="product-grid" id="product-grid">
+                </div>
+
+            <div class="bottom-pagination">
+                </div>
+        </section>
+
+    </main>
+    
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-details">
+                </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script> 
+</body>
+</html>
