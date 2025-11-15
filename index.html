@@ -10,12 +10,10 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
         // 🚨 중요: 주신 키를 사용하여 SDK를 초기화합니다.
-        // 이 키는 카카오 개발자 센터에서 발급받은 실제 JavaScript 키여야 합니다.
         Kakao.init('Y3l7Id39aSkSOFAroUgWcdp5kqxPuP3x'); 
     </script>
 </head>
-<body>
-
+<body onload="showLoginPage()"> 
     <header class="header">
         <div class="top-bar">
             <div class="top-menu">
@@ -37,7 +35,7 @@
                 <input type="text" placeholder="상품 검색...">
                 <button type="submit">🔍</button>
             </div>
-             <div class="cart-info">
+            <div class="cart-info">
                 <a href="#">
                     CART (<span id="cart-count">0</span>)
                 </a>
@@ -87,7 +85,6 @@
             </div>
         </section>
 
-
         <section class="product-list-section" id="product-list-section">
             <div class="breadcrumb">
                 <a href="#">Home</a> &gt; <a href="#">OUTER</a>
@@ -119,10 +116,10 @@
             </div>
 
             <div class="product-grid" id="product-grid">
-                </div>
+            </div>
 
             <div class="bottom-pagination">
-                </div>
+            </div>
         </section>
 
     </main>
@@ -131,9 +128,32 @@
         <div class="modal-content">
             <span class="close-btn">&times;</span>
             <div id="modal-details">
-                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        function showLoginPage() {
+            // 상품 목록을 숨깁니다.
+            const productList = document.getElementById('product-list-section');
+            if (productList) productList.style.display = 'none';
+            
+            // 로그인 페이지를 보이게 합니다.
+            const loginPage = document.getElementById('login-page');
+            if (loginPage) loginPage.style.display = 'block';
+
+            // 상단 메뉴의 'LOGIN' 버튼에 클릭 이벤트 리스너를 설정합니다.
+            const loginLink = document.getElementById('login-link');
+            if (loginLink) {
+                loginLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showLoginPage(); // 다시 로그인 페이지를 보이게 합니다.
+                });
+            }
+        }
+        
+        // window.onload에서 showLoginPage()를 호출하는 대신 body onload를 사용합니다.
+    </script>
     
     <script src="script.js"></script> 
 </body>
