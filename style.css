@@ -48,7 +48,6 @@ ul {
     color: #fff;
 }
 
-
 .main-header {
     display: flex;
     justify-content: center;
@@ -89,7 +88,6 @@ ul {
 .search-box input::placeholder {
     color: #aaa; /* 검색창 플레이스홀더 색상 */
 }
-
 
 .search-box button {
     background: none;
@@ -252,6 +250,11 @@ ul {
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
+}
+
+.product-list-section {
+    display: block; /* 기본적으로는 보여지지만, JS로 숨김/표시 처리됩니다. */
+    position: relative;
 }
 
 .breadcrumb {
@@ -434,3 +437,4 @@ ul {
     color: #fff;
     border-color: #333;
 }
+```http://googleusercontent.com/image_generation_content/2
